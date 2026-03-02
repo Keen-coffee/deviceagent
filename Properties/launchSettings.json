@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Fourteen10 Device Agent": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:12124;http://127.0.0.1:12123"
+    }
+  }
+}
