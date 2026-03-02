@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policyBuilder =>
     {
         policyBuilder
-            .WithOrigins("http://127.0.0.1:12123", "https://127.0.0.1:12124", "https://localhost:12124")
+            .WithOrigins("http://127.0.0.1:12123", "https://127.0.0.1:12124", "https://localhost:12124", "https://home.frontiertoyota.com")
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
