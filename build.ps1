@@ -8,7 +8,18 @@ param(
     [string]$Configuration = "Release"
 )
 
+$projectFile = "Fourteen10.DeviceAgent.csproj"
+
+# Validate we're in the correct directory
+if (-not (Test-Path $projectFile)) {
+    Write-Host "Error: Project file not found!" -ForegroundColor Red
+    Write-Host "Make sure you're in the project directory (deviceagent folder)" -ForegroundColor Yellow
+    Write-Host "Current location: $(Get-Location)" -ForegroundColor Cyan
+    exit 1
+}
+
 Write-Host "=== Fourteen10 Device Agent - Build Script ===" -ForegroundColor Cyan
+Write-Host "Location: $(Get-Location)" -ForegroundColor Cyan
 Write-Host "Deployment Type: $DeploymentType" -ForegroundColor Yellow
 Write-Host "Configuration: $Configuration" -ForegroundColor Yellow
 Write-Host ""
@@ -16,7 +27,7 @@ Write-Host ""
 $selfContained = if ($DeploymentType -eq "self-contained") { "true" } else { "false" }
 
 Write-Host "Building project..." -ForegroundColor Green
-dotnet build -c $Configuration
+dotnet build $projectFile -c $Configuration
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Build failed!" -ForegroundColor Red
@@ -28,6 +39,7 @@ Write-Host "Publishing project..." -ForegroundColor Green
 
 $publishArgs = @(
     "publish"
+    $projectFile
     "-c", $Configuration
     "-r", "win-x64"
     "--self-contained", $selfContained

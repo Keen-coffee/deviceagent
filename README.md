@@ -27,6 +27,11 @@ A .NET 8.0 Windows Service that hosts a REST API providing device information.
 
 ## Building the Project
 
+**Make sure you're in the project directory first:**
+```powershell
+cd C:\path\to\deviceagent
+```
+
 ### Option 1: Framework-Dependent (Recommended for Small Size)
 Requires .NET 8.0 runtime installed on target machine (~5 MB output)
 
@@ -35,7 +40,7 @@ Requires .NET 8.0 runtime installed on target machine (~5 MB output)
 .\build.ps1 -DeploymentType framework-dependent
 
 # Or manually
-dotnet publish -c Release -r win-x64 --self-contained false
+dotnet publish Fourteen10.DeviceAgent.csproj -c Release -r win-x64 --self-contained false
 ```
 
 ### Option 2: Self-Contained (Recommended for Standalone)
@@ -46,7 +51,7 @@ Includes .NET runtime, no dependencies required (~150-200 MB output)
 .\build.ps1 -DeploymentType self-contained
 
 # Or manually
-dotnet publish -c Release -r win-x64 --self-contained true
+dotnet publish Fourteen10.DeviceAgent.csproj -c Release -r win-x64 --self-contained true
 ```
 
 ### Quick Build (Default: Framework-Dependent)
@@ -55,6 +60,8 @@ dotnet publish -c Release -r win-x64 --self-contained true
 # Simplest option - builds framework-dependent release
 .\build.ps1
 ```
+
+> **Troubleshooting:** If you get an error about multiple projects, see [BUILD-TROUBLESHOOTING.md](BUILD-TROUBLESHOOTING.md)
 
 ## Installation as Windows Service
 

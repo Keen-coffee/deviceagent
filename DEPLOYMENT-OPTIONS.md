@@ -75,6 +75,12 @@ dotnet publish -c Release -r win-x64 --self-contained true
 
 ## How to Use the Build Script
 
+**Make sure you're in the project directory first:**
+
+```powershell
+cd C:\path\to\deviceagent  # Navigate to the project folder
+```
+
 ### Default (Framework-Dependent)
 ```powershell
 .\build.ps1

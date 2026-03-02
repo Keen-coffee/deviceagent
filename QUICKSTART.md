@@ -2,20 +2,25 @@
 
 ## 1. Build the Project
 
+**Make sure you're in the project directory** (`deviceagent` folder)
+
 ### Option A: Small Size (Framework-Dependent - Requires .NET on Target)
 ```powershell
+cd C:\path\to\deviceagent
 .\build.ps1 -DeploymentType framework-dependent
 # Output: ~5 MB
 ```
 
 ### Option B: Standalone (Self-Contained - No .NET Required)
 ```powershell
+cd C:\path\to\deviceagent
 .\build.ps1 -DeploymentType self-contained
 # Output: ~150-200 MB
 ```
 
 ### Option C: Default (Framework-Dependent)
 ```powershell
+cd C:\path\to\deviceagent
 .\build.ps1
 ```
 
